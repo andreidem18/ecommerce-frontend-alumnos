@@ -1,7 +1,7 @@
 import deafultAxios from 'axios';
 
 const axios = () => deafultAxios.create({
-    baseURL: 'https://e-commerce-api-v2.academlo.tech/api/v1',
+    baseURL: import.meta.env.VITE_BASE_URL,
     headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
     }

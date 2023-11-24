@@ -22,7 +22,7 @@ const CartSidebar = () => {
     const total = useMemo(() => {
         let total = 0;
         cartProducts.forEach(p => {
-            total += p.product.price * p.quantity
+            total += p.product?.price * p.quantity
         })
         return total;
     }, [cartProducts])

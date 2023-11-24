@@ -16,8 +16,6 @@ const Purchases = () => {
     dispatch(getPurchases());
   }, [dispatch]);
 
-  console.log(purchases[0]?.product.price)
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString()
@@ -45,17 +43,17 @@ const Purchases = () => {
             <tr key={purchase.id}>
               <td>
                 <img 
-                  src={purchase.product.images[0].url} 
+                  src={purchase.product?.images?.[0]?.url} 
                   alt="" 
                   style={{width: "100px", padding: " 10px", background: "#fff"}}
                 />
               </td>
               <td>
                 <b
-                  onClick={() => navigateToProduct(purchase.product.id)}
+                  onClick={() => navigateToProduct(purchase.product?.id)}
                   style={{cursor: "pointer"}}
                 >
-                  {purchase.product.title}
+                  {purchase.product?.title}
                 </b>
               </td>
               <td>{formatDate(purchase.createdAt)}</td>
@@ -66,7 +64,7 @@ const Purchases = () => {
               </td>
               <td>
                 <span className="text-bold text-success">
-                  ${purchase.product.price}
+                  ${purchase.product?.price}
                 </span>
               </td>
             </tr>
